@@ -17,3 +17,7 @@ install:
 
 script:
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - npm install codecov -g
+
+after_success:
+  - codecov
