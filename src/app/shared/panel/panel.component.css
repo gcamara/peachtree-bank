@@ -1,0 +1,47 @@
+:host {
+    box-shadow: 0 0 1rem -.6rem;
+    display: block;
+}
+
+.panel-header, .panel-body {
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    text-align: center;
+}
+
+.panel-header {
+    color: white;
+    background-color: var(--navy-blue);
+    justify-content: center;
+}
+
+.panel-header ::ng-deep div:not(.icon) {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.panel-header .icon {
+    display: flex;
+}
+
+.panel-header .icon img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.panel-body {
+    padding: 3rem 2rem;
+    flex-direction: column;
+    background-color: white;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    :host {
+        max-width: 80%;
+        margin: auto;
+    }
+}

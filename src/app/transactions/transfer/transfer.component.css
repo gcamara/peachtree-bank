@@ -1,0 +1,63 @@
+:host {
+    display: flex;
+    border-left: .8rem black solid;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+:host:not(:last-child) {
+    border-bottom: .1rem var(--lighter-gray) solid;
+}
+
+.image {
+    flex-grow: .1;
+    width: 6rem;
+    max-width: 6rem;
+    min-width: 6rem;
+}
+
+.image img {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    margin: auto;
+    filter: saturate(0);
+}
+
+.date {
+    flex-grow: .1;
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.transaction-details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.transaction-details .merchant {
+    font-weight: 500;
+    line-height: 1.5rem;
+}
+
+.transaction-details .payment-type {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.amount {
+    text-align: right;
+    flex-grow: .2;
+}
+
+@media screen and (max-width: 767px) {
+    .transaction-details .merchant {
+        font-size: 1.4rem;
+    }
+    .transaction-details .payment-type {
+        font-size: 1.2rem;
+    }
+}

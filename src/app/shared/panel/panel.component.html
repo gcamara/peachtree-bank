@@ -1,0 +1,9 @@
+<div class="panel-header">
+    <div class="icon" *ngIf="icon">
+        <img src="../../../assets/icons/{{icon}}.png" alt="Panel Icon">
+    </div>
+    <ng-content select="[panel-header]"></ng-content>
+</div>
+<div class="panel-body">
+    <ng-content select="[panel-body]"></ng-content>
+</div>

@@ -1,0 +1,6 @@
+<div class="prefix" *ngIf="prefix">{{prefix}}</div>
+<input [type]="type" [placeholder]="placeholder" [formControl]="control">
+<div class="clear-field" *ngIf="control?.value && !control?.disabled">
+    <button type="button" (click)="clearInputField()">x</button>
+</div>
+<div class="focus-border"></div>

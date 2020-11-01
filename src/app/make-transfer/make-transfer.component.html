@@ -1,0 +1,14 @@
+<app-panel icon="arrows">
+    <div panel-header>
+        Make a Transfer
+    </div>
+    <div panel-body>
+        <form [formGroup]="transferForm">
+            <app-form-field label="From Account" [control]="controls['from']"></app-form-field>
+            <app-form-field label="To Account" [control]="controls['to']" placeholder="Inform the account"></app-form-field>
+            <app-form-field label="Amount" [control]="controls['amount']" type="number" placeholder="0.00" prefix="$"></app-form-field>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</app-panel>

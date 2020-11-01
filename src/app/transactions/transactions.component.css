@@ -1,0 +1,108 @@
+:host {
+    flex-grow: 0.9;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter .sort {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter > * {
+    width: 49%;
+}
+
+.filter .btn-group button,
+.filter .sort {
+    font-size: var(--font-size);
+}
+
+.filter .btn-group {
+    display: flex;
+    width: 82%;
+}
+
+.filter .btn-group button {
+    border: 0.1rem var(--light-gray) solid;
+    font-size: var(--font-size);
+    width: 100%;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    color: var(--light-gray);
+    border-radius: 0;
+    box-shadow: 0 0 0rem 0.1rem inset transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter .btn-group button:hover,
+.filter .btn-group button.selected {
+    box-shadow: 0 0 0rem 0.1rem inset black;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+.filter .btn-group button:not(:first-child):not(:last-child) {
+    border-left: none;
+    border-right: none;
+}
+
+.filter .arrow {
+    display: flex;
+    align-items: center;
+}
+
+.filter .arrow::after {
+    content: '';
+    width: 0;
+    border: .5rem transparent solid;
+    border-bottom-color: black;
+    margin-left: .5rem;
+}
+
+.filter .arrow.arrow-up::after {
+    transform: rotate(180deg);
+    transform-origin: 50% 60%;
+}
+
+.results {
+    margin-top: 2rem;
+    border: .1rem var(--lighter-gray) solid;
+}
+
+@media screen and (max-width: 768px) {
+    :host {
+        margin-top: 3rem;
+    }
+
+    .filter {
+        flex-direction: column;
+    }
+
+    .filter > * {
+        width: 100%;
+    }
+
+    .filter .sort {
+        margin-top: 3rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter .btn-group {
+        width: 100%;
+    }
+
+    .filter .sort label {
+        text-align: left;
+        margin-bottom: 1rem;
+    }
+}

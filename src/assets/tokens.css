@@ -1,0 +1,11 @@
+:root {
+    --max-screen-width: 114rem;
+    --input-font-size: 1.2rem;
+    --font-size: 1.4rem;
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,23 @@
+:host {
+    width: 100%;
+    background-color: white;
+    padding: 2rem;
+    box-sizing: border-box;
+    border-bottom: .2rem var(--border-header) solid;
+    margin-bottom: 5rem;
+}
+
+header {
+    max-width: var(--max-screen-width);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+header .logo {
+    background: url('../../assets/logo.jpg') no-repeat;
+    background-size: contain;
+    height: 3rem;
+    width: 28rem;
+}

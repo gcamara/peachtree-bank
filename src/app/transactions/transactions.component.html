@@ -1,0 +1,23 @@
+<app-panel icon="briefcase">
+    <div panel-header >
+        Recent Transactions
+    </div>
+    <div panel-body>
+        <div class="filter">
+            <app-form-field [control]="filterControl" placeholder="Search by typing..."></app-form-field>
+            <div class="sort">
+                <label>Sort by</label>
+                <div class="btn-group">
+                    <button *ngFor="let filter of filterTypes" [ngClass]="{ selected: sortFilter === filter }"
+                        (click)="changeFilterType(filter)">
+                        {{filter}}
+                        <div *ngIf="sortFilter === filter" class="arrow arrow-{{ arrowDirection }}"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="results">
+            <app-transfer *ngFor="let transaction of filteredTransactions; trackBy: trackByMerchant" [transaction]="transaction"></app-transfer>
+        </div>
+    </div>
+</app-panel>

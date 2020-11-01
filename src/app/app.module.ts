@@ -1,14 +1,33 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { MakeTransferComponent } from './make-transfer/make-transfer.component';
+import { FormFieldComponent } from './shared/form-field/form-field.component';
+import { InputComponent } from './shared/input/input.component';
+import { PanelComponent } from './shared/panel/panel.component';
+import { TransactionsComponent } from './transactions/transactions.component';
+import { TransferComponent } from './transactions/transfer/transfer.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MakeTransferComponent,
+    TransactionsComponent,
+    HeaderComponent,
+    PanelComponent,
+    InputComponent,
+    FormFieldComponent,
+    TransferComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

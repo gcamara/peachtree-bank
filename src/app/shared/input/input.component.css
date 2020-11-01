@@ -1,0 +1,60 @@
+:host {
+    position: relative;
+    width: 100%;
+    display: flex;
+    color: var(--light-gray);
+    border-bottom: .1rem var(--border-input) solid;
+}
+
+.prefix, input {
+    font-size: var(--font-size);
+}
+
+.prefix {
+    display: flex;
+    align-items: center;
+    margin-right: .5rem;
+}
+
+input {
+    border: none;
+    outline: none;
+    padding: 1rem 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.focus-border {
+    content: '';
+    width: 0;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    transition: width .2s ease-in-out, height .1s ease-in-out;
+    position: absolute;
+}
+
+input:focus ~ .focus-border {
+    background-color: var(--dark);
+    height: .2rem;
+    width: 100%;
+}
+
+.clear-field {
+    display: flex;
+    align-items: center;
+}
+
+.clear-field button {
+    cursor: pointer;
+    padding: 0;
+    text-transform: lowercase;
+    font-size: 1.6rem;
+}
+
+@media screen and (max-width: 768px) {
+    .clear-field button {
+        font-size: 2rem;
+    }
+}

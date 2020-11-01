@@ -1,0 +1,12 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 500;
+    color: var(--dark);
+    font-size: var(--font-size);
+    text-align: left;
+    text-transform: uppercase;
+}

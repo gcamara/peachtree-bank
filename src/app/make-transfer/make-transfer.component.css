@@ -1,0 +1,26 @@
+:host {
+    max-width: 32.5rem;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    :host {
+        max-width: 100%;
+    }
+}
+
+
+app-form-field {
+    margin-bottom: 3rem;
+}
+
+div[panel-header] {
+    font-size: var(--font-size);
+}
+
+button[type="submit"] {
+    width: 60%;
+    margin-left: auto;
+    display: block;
+    cursor: pointer;
+}
