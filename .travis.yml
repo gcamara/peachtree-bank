@@ -1,23 +1,17 @@
-dist: trusty
-sudo: false
-
 language: node_js
-node_js:
-  - '12'
-
+node_js:    
+  - "12"
 addons:
   chrome: stable
-
-cache:
-  directories:
-    - ./node_modules
-
-install:
-  - npm install
-
-script:
-  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
-  - npm install codecov -g
-
-after_success:
-  - codecov --disable=gcov -f ./coverage/lcov.info
+env:
+  global:
+    CODECOV_TOKEN=$CODECOV_TOKEN    
+before_script:
+  - npm install 
+jobs:
+  include:
+    - stage: Test coverage
+      script:
+        - ng test --browsers=ChromeHeadlessNoSandbox --codeCoverage=true --watch=false
+      after_script:
+         - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./node_modules/.bin/codecov; fi
