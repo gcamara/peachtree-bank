@@ -1,11 +1,16 @@
+/**
+ * The user account
+ */
 export interface UserAccount {
     description: string;
-    amount: number;
+    balance: number;
 }
 
+/**
+ * The transfer data
+ */
 export interface Transfer {
-    from: UserAccount;
-    to: UserAccount;
+    to: string;
     amount: number;
 }
 

@@ -31,10 +31,10 @@ export class TransactionsComponent implements OnInit, OnDestroy {
   textFilter = '';
 
   /** Filter order */
-  order: FilterOrder = 'ASC';
+  order: FilterOrder = 'DESC';
 
   /** Filter type */
-  sortFilter: SortFilter = 'BENEFICIARY';
+  sortFilter: SortFilter = 'DATE';
 
   /** Filter types to iterate over and create buttons */
   filterTypes = sortFiltersTypes;
@@ -45,7 +45,7 @@ export class TransactionsComponent implements OnInit, OnDestroy {
       .pipe(
         map((data: Transaction[]) => {
           /** This will guarantee that the last transfer appears on top on transfer event. */
-          this.textFilter = '';
+          this.filterControl?.setValue('');
           this.sortFilter = 'DATE';
           this.order = 'DESC';
           return this.filterData(data);
@@ -76,9 +76,9 @@ export class TransactionsComponent implements OnInit, OnDestroy {
    * @param data The result to be filtered
    */
   filterData = (data: Transaction[]): Transaction[] => {
-    let result = data;
+    let result = data.slice();
     if (this.textFilter.length) {
-      result = data.filter((transaction: Transaction) => {
+      result = result.filter((transaction: Transaction) => {
         if (this.sortFilter === 'DATE') {
           return new Date(transaction.dates.valueDate).getTime() <= new Date(this.textFilter).getTime();
         }
@@ -111,7 +111,7 @@ export class TransactionsComponent implements OnInit, OnDestroy {
    */
   compareFields = (transactionA: Transaction, transactionB: Transaction): number => {
     // Will change the order by multiplying
-    const factor = this.order === 'ASC' ? -1 : 1;
+    const factor = this.order === 'ASC' ? 1 : -1;
 
     if (this.sortFilter === 'DATE') {
       const fieldA = new Date(transactionA.dates.valueDate);
@@ -163,7 +163,7 @@ export class TransactionsComponent implements OnInit, OnDestroy {
 
   /** Gets the arrow direction depending on the current order. */
   get arrowDirection(): string {
-    return this.order === 'ASC' ? 'up' : 'down';
+    return this.order === 'ASC' ? 'down' : 'up';
   }
 
 }

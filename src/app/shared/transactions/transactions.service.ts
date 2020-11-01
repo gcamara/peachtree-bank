@@ -11,7 +11,7 @@ export class TransactionsService {
 
   transactions$ = new BehaviorSubject<Transaction[]>([]);
 
-  constructor(http: HttpClient) {
+  constructor(public http: HttpClient) {
     http.get('./assets/mock/transactions.json')
       .pipe(
         map((result: {data: Transaction[]}) => result.data)
@@ -19,6 +19,7 @@ export class TransactionsService {
       .subscribe((data: Transaction[]) => this.transactions$.next(data));
   }
 
+  /** Get the transactions to subscribe */
   getTransactions(): BehaviorSubject<Transaction[]> {
     return this.transactions$;
   }

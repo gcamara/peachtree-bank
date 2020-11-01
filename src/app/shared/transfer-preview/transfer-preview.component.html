@@ -1,0 +1,16 @@
+<div class="preview" [ngClass]="{ show: show, confirm: confirmed }">
+    <header>
+        <h1>Confirm Money Transfer?</h1>
+    </header>
+    <div class="transfer-details">
+        <div class="question">Confirm the details below before proceed</div>
+        <div class="amount">${{amount}}</div>
+        <div class="to-account">
+            Beneficiary: {{toAccount}}
+        </div>
+    </div>
+    <div class="buttons">
+        <button (click)="onCancel()" class="btn btn-return">Return</button>
+        <button (click)="onConfirm()" class="btn btn-confirm">Transfer</button>
+    </div>
+</div>

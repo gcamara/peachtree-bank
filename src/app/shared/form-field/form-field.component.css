@@ -10,3 +10,9 @@ label {
     text-align: left;
     text-transform: uppercase;
 }
+
+.error {
+    font-size: 1.2rem;
+    text-align: left;
+    color: var(--red);
+}

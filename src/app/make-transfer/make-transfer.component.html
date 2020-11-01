@@ -3,12 +3,21 @@
         Make a Transfer
     </div>
     <div panel-body>
-        <form [formGroup]="transferForm">
+        <form [formGroup]="transferForm" (submit)="onSubmit()">
             <app-form-field label="From Account" [control]="controls['from']"></app-form-field>
-            <app-form-field label="To Account" [control]="controls['to']" placeholder="Inform the account"></app-form-field>
-            <app-form-field label="Amount" [control]="controls['amount']" type="number" placeholder="0.00" prefix="$"></app-form-field>
+            <app-form-field label="To Account" [control]="controls['to']" placeholder="Inform the account">
+                <div error>An account is necessary</div>
+            </app-form-field>
+            <app-form-field label="Amount" [control]="controls['amount']" type="number" placeholder="0.00" prefix="$">
+                <div error *ngIf="!hasAmount()">The amount must be greater than $0.</div>
+                <div error *ngIf="hasAmount() && !canTransfer()">You don't have enough money.</div>
+            </app-form-field>
 
             <button type="submit">Submit</button>
         </form>
     </div>
 </app-panel>
+<app-transfer-preview [amount]="amount" [toAccount]="controls['to'].value" 
+    (cancelHandler)="onCancelTransfer()" 
+    [show]="submitted"
+    (submitHandler)="onSubmitted()"></app-transfer-preview>

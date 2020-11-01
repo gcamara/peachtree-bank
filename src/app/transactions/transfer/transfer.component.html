@@ -3,7 +3,7 @@
     {{ formattedDate }}
 </div>
 <div class="image">
-    <img src="../../../assets/icons/{{filename}}.png" alt="{{merchant}}'s logo">
+    <img *ngIf="transaction.merchant.accountNumber" src="../../../assets/icons/{{filename}}.png" alt="{{merchant}}'s logo">
 </div>
 <div class="transaction-details">
     <div class="merchant">{{merchant}}</div>

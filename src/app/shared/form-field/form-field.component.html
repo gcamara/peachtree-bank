@@ -1,2 +1,5 @@
 <label>{{label}}</label>
 <app-input [control]="control" [type]="type" [placeholder]="placeholder" [prefix]="prefix"></app-input>
+<div class="error" *ngIf="control.touched && control.errors">
+    <ng-content select="[error]"></ng-content>
+</div>

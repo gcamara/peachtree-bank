@@ -1,5 +1,6 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component, HostBinding, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Color, Transaction } from 'src/app/shared/model';
+import { Utils } from 'src/app/shared/utils';
 
 const colors: Color[] = [
   { green: '#d51271' },
@@ -16,7 +17,7 @@ const colors: Color[] = [
   templateUrl: './transfer.component.html',
   styleUrls: ['./transfer.component.css']
 })
-export class TransferComponent {
+export class TransferComponent implements OnChanges {
 
   @Input()
   transaction: Transaction;
@@ -26,6 +27,12 @@ export class TransferComponent {
 
   constructor() {
     this.color = Object.values(colors[Math.floor(7 * Math.random())])[0];
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.transaction) {
+      this.color = changes.transaction.currentValue?.categoryCode ?? this.color;
+    }
   }
 
   /**
@@ -61,8 +68,7 @@ export class TransferComponent {
    * Return the amount with currency formatted by Intl;
    */
   get amount(): string {
-    const amount = new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 })
-      .format(this.transaction?.transaction.amountCurrency.amount ?? 0);
+    const amount = Utils.formatAmount(this.transaction?.transaction.amountCurrency.amount);
     const symbol = this.transaction.transaction.creditDebitIndicator === 'CRDT' ? '' : '-';
     return `${symbol}$${amount}`;
   }

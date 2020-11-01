@@ -10,6 +10,7 @@ import { InputComponent } from './shared/input/input.component';
 import { PanelComponent } from './shared/panel/panel.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { TransferComponent } from './transactions/transfer/transfer.component';
+import { TransferPreviewComponent } from './shared/transfer-preview/transfer-preview.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { TransferComponent } from './transactions/transfer/transfer.component';
     PanelComponent,
     InputComponent,
     FormFieldComponent,
-    TransferComponent
+    TransferComponent,
+    TransferPreviewComponent
   ],
   imports: [
     BrowserModule,
