@@ -1,3 +1,6 @@
+# Code Coverage
+[![Build Status](https://travis-ci.com/gcamara/peachtree-bank.svg?branch=main)](https://travis-ci.com/gcamara/peachtree-bank)
+
 # Peachtree Bank
 
 This project was created with the latest angular version by the date it was pushed.
