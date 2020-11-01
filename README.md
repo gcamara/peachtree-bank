@@ -1,5 +1,5 @@
 # Code Coverage
-[![Build Status](https://travis-ci.com/gcamara/peachtree-bank.svg?branch=main)](https://travis-ci.com/gcamara/peachtree-bank)
+[![Build Status](https://travis-ci.com/gcamara/peachtree-bank.svg?branch=main)](https://travis-ci.com/gcamara/peachtree-bank) [![codecov](https://codecov.io/gh/gcamara/peachtree-bank/branch/main/graph/badge.svg?token=A2DJ6HJEOD)](https://codecov.io/gh/gcamara/peachtree-bank)
 
 # Peachtree Bank
 
